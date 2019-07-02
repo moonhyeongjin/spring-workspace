@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="userDummyDao" class="com.sample.di.demo5.UserDummyDao">
+</bean>
+
+<bean id="pointDummyDao" class="com.sample.di.demo5.PointDummyDao">
+</bean>
+
+<bean id="userService" class="com.sample.di.demo5.UserService">
+ 
+<property name="pointDao" ref="pointDummyDao"></property>
+<property name="userDao" ref="userDummyDao"></property>
+</bean>
+</beans>

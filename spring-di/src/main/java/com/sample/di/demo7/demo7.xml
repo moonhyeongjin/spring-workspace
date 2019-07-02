@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+<!--
+	기본자료형 (boolean, 정수, 실수)와 문자열을 주입할때 value속성 을 사용
+	
+  -->
+<!-- 
+	<bean id="emailService" class="com.sample.di.demo7.EmailService">
+	<property name="host" value="smtp.jhta.co.kr"></property>
+	<property name="port" value="487"></property>
+	<property name="userId" value="admin"></property>
+	<property name="userPwd" value="zxcv1234"></property>
+</bean> 
+-->
+
+<!-- 
+	지정된 properties 파일을 읽어서 설정정보를 해석하고
+	설정정보가 저장된 객체를 스프링 컨테이너에 등록한다
+	설정정보가 필요한 곳에서는 ${ }으로 그 값을 사용할수있다.
+ -->
+<context:property-placeholder
+	location="classpath:/com/sample/di/demo7/mail-config.properties"
+/>
+<!--  
+	기본자료형 값을 ${}표현식을 사용해서 properties 파일에 설정된 값을 읽어와서 설정하는경우
+	
+-->
+<bean id="emailService" class="com.sample.di.demo7.EmailService">
+	<property name="host" value="${mail.host}"></property>
+	<property name="port" value="${mail.port}"></property>
+	<property name="userId" value="${mail.userid}"></property>
+	<property name="userPwd" value="${mail.userpassword}"></property>
+</bean>
+</beans>

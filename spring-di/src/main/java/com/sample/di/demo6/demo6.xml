@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="goodmorning" class="com.sample.di.demo6.Goodmorning"></bean>
+<bean id="goodbye" class="com.sample.di.demo6.Goodbye"></bean>
+
+
+<!--
+	setInjection 
+		setter 메소드를 정의하고
+		<property> 태그를 사용해 setter 메소드를 선택한다음 조립될 빈을 지정한다.
+  -->
+<bean id="messageService" class="com.sample.di.demo6.MessageService">
+<property name="bye" ref="goodbye"></property>
+<property name="morning" ref="goodmorning"></property>
+</bean>
+
+<!--  
+	Constructor Injection 
+			생성자 메소드를 생성하고
+				<constructor-arg> 태그를 사용해 조립될 빈을 지정한다.
+-->
+<bean id="messageService2" class="com.sample.di.demo6.MessageService">
+<!-- 	
+	<constructor-arg index="0" ref="goodmorning"></constructor-arg>
+	<constructor-arg index="1" ref="goodbye"></constructor-arg> 
+	서로 다른타입이면 인덱스를 적지않아도 알아서 찾아감. 같은타입이 두개이상잇을땐 인덱스지정해주자
+-->
+	<constructor-arg ref="goodmorning"></constructor-arg>
+	<constructor-arg ref="goodbye"></constructor-arg>
+</bean>
+
+
+</beans>
+
+
