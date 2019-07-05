@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="free">
+
+<select id="getAllBoards" resultClass="FreeBoard">
+	select 
+		BOARD_NO no,
+		BOARD_TITLE title,
+		BOARD_WRITER writer,
+		BOARD_COTENTS contents,
+		BOARD_FILENAME1 fileName1,
+		BOARD_FILENAME2 fileName2,
+		BOARD_FILENAME3 fileName3,
+		board_create_date createDate
+	from
+		portal_free_boards
+	order by
+		board_no
+</select>
+
+<insert id="addBoard" parameterClass="FreeBoard">
+	insert into
+		portal_free_boards(
+			BOARD_NO,BOARD_TITLE,BOARD_WRITER,BOARD_COTENTS,BOARD_FILENAME1,BOARD_FILENAME2,BOARD_FILENAME3
+		)
+		values(board_seq.nextval,#title#,#writer#,#contents#,#fileName1:VARCHAR#, #fileName2:VARCHAR#, #fileName3:VARCHAR#)
+</insert>
+</sqlMap>
