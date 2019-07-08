@@ -8,7 +8,7 @@
     <ul class="nav navbar-nav">
       <li class="active"><a href="/portal/home.do">홈</a></li>
       <li><a href="#">Page 1</a></li>
-      <li><a href="#">Page 2</a></li>
+      <li><a href="/portal/notice/list.do">공지사항</a></li>
       <li><a href="/portal/free/list.do">자유게시판</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">

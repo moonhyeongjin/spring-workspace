@@ -7,6 +7,7 @@ import org.springframework.orm.ibatis.SqlMapClientTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.sample.portal.vo.FreeBoard;
+import com.sample.portal.vo.FreeBoardComment;
 
 @Repository
 public class FreeBoardDaoImPl implements FreeBoardDao {
@@ -20,6 +21,18 @@ public class FreeBoardDaoImPl implements FreeBoardDao {
 	@Override
 	public void addBoard(FreeBoard freeBoard) {
 		 template.insert("free.addBoard",freeBoard);
+	}
+	@Override
+	public FreeBoard getFreeBoardByNo(int boardNo) {
+		return (FreeBoard) template.queryForObject("free.getFreeBoardByNo", boardNo);
+	}
+	@Override
+	public void addComment(FreeBoardComment comment) {
+			template.insert("free.addComment",comment);
+	}
+	@Override
+	public List<FreeBoardComment> getCommentsByBoardNo(int boardNo) {
+		return template.queryForList("free.getCommentsByBoardNo", boardNo);
 	}
 	
 }

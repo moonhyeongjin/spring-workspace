@@ -14,12 +14,16 @@
 	<!--  
 		VO클래스 별칭 등록
 	-->
-	<typeAlias alias="User" type="com.sample.portal.vo.User"/>
-	<typeAlias alias="FreeBoard" type="com.sample.portal.vo.FreeBoard"/>
+	<typeAlias alias="FreeBoard"	 		type="com.sample.portal.vo.FreeBoard"/>
+	<typeAlias alias="FreeBoardComment"	 	type="com.sample.portal.vo.FreeBoardComment"/>
+	<typeAlias alias="Notice" 				type="com.sample.portal.vo.Notice"/>
+	<typeAlias alias="User" 				type="com.sample.portal.vo.User"/>
 	
 	<!--  
 		매퍼파일 등록
 	-->
-	<sqlMap resource="META-INF/ibatis/mappers/users.xml"></sqlMap>
 	<sqlMap resource="META-INF/ibatis/mappers/freeboards.xml"></sqlMap>
+	<sqlMap resource="META-INF/ibatis/mappers/notices.xml"></sqlMap>
+	<sqlMap resource="META-INF/ibatis/mappers/users.xml"></sqlMap>
+	
 </sqlMapConfig>
